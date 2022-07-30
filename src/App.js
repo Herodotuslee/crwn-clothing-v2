@@ -1,6 +1,9 @@
 import Home from "./routes/home/home.component";
 // ./ same layer ../ next layer
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
+import Navigation from "./routes/navigation/navigation";
+
+
 
 
 const Shop = () => {
@@ -11,10 +14,11 @@ const Shop = () => {
 const App = () => {
   return (
     <Routes>
-      <Route path='/home' element={<Home />}>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        {/* index when have nothing there  */}
         <Route path='shop' element={<Shop />} />
       </Route>
-
     </Routes>
   );
 };
